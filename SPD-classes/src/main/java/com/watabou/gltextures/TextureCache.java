@@ -1,9 +1,9 @@
 /*
  * Pixel Dungeon
- * Copyright (C) 2012-2015 Oleg Dolya
+ * Copyright (C) 2012-2015  Oleg Dolya
  *
  * Shattered Pixel Dungeon
- * Copyright (C) 2014-2019 Evan Debenham
+ * Copyright (C) 2014-2017 Evan Debenham
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@ public class TextureCache {
 		bitmapOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;
 	}
 
-	public synchronized static SmartTexture createSolid( int color ) {
+	public static SmartTexture createSolid( int color ) {
 		final String key = "1x1:" + color;
 		
 		if (all.containsKey( key )) {
@@ -63,7 +63,7 @@ public class TextureCache {
 		}
 	}
 	
-	public synchronized static SmartTexture createGradient( int... colors ) {
+	public static SmartTexture createGradient( int... colors ) {
 		
 		final String key = "" + colors;
 		
@@ -88,11 +88,11 @@ public class TextureCache {
 		
 	}
 	
-	public synchronized static void add( Object key, SmartTexture tx ) {
+	public static void add( Object key, SmartTexture tx ) {
 		all.put( key, tx );
 	}
 	
-	public synchronized static void remove( Object key ){
+	public static void remove( Object key ){
 		SmartTexture tx = all.get( key );
 		if (tx != null){
 			all.remove(key);
@@ -100,7 +100,7 @@ public class TextureCache {
 		}
 	}
 
-	public synchronized static SmartTexture get( Object src ) {
+	public static SmartTexture get( Object src ) {
 		
 		if (all.containsKey( src )) {
 			
@@ -119,17 +119,17 @@ public class TextureCache {
 		
 	}
 	
-	public synchronized static void clear() {
+	public static void clear() {
 		
-		for (Texture txt : all.values()) {
+		for (Texture txt:all.values()) {
 			txt.delete();
 		}
 		all.clear();
 		
 	}
 	
-	public synchronized static void reload() {
-		for (SmartTexture tx : all.values()) {
+	public static void reload() {
+		for (SmartTexture tx:all.values()) {
 			tx.reload();
 		}
 	}
@@ -164,7 +164,7 @@ public class TextureCache {
 		}
 	}
 	
-	public synchronized static boolean contains( Object key ) {
+	public static boolean contains( Object key ) {
 		return all.containsKey( key );
 	}
 	

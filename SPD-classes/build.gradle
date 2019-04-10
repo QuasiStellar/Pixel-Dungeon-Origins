@@ -30,8 +30,10 @@ android {
     }
 
     defaultConfig {
+        minSdkVersion = 8
+
         //noinspection MinSdkTooLow
-        minSdkVersion 8
+        //minSdkVersion 8
     }
 }
 

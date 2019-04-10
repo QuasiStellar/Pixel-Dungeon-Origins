@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.shatteredpixel.shatteredpixeldungeon"
-	android:versionCode="335"
-	android:versionName="0.7.2a"
+	package="com.quasistellar.origins"
+	android:versionCode="242"
+	android:versionName="0.1"
 	android:installLocation="auto">
+
+	<uses-sdk android:targetSdkVersion="26"/>
 	
 	<uses-feature
 		android:glEsVersion="0x00020000"/>
@@ -20,12 +22,10 @@
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
 		android:theme="@android:style/Theme.Black.NoTitleBar"
-		android:allowBackup="true"
-		android:fullBackupOnly="true"
-		android:backupAgent="com.shatteredpixel.shatteredpixeldungeon.BackupHandler">
+		android:allowBackup="false">
 		<activity
 			android:label="@string/app_name"
-			android:name="com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon"
+			android:name="com.quasistellar.origins.Origins"
 			android:alwaysRetainTaskState="true"
 			android:launchMode="singleInstance"
 			android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"

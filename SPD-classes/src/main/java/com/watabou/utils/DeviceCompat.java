@@ -1,9 +1,9 @@
 /*
  * Pixel Dungeon
- * Copyright (C) 2012-2015 Oleg Dolya
+ * Copyright (C) 2012-2015  Oleg Dolya
  *
  * Shattered Pixel Dungeon
- * Copyright (C) 2014-2019 Evan Debenham
+ * Copyright (C) 2014-2017 Evan Debenham
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,13 +21,7 @@
 
 package com.watabou.utils;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
-import android.util.Log;
-
-import com.watabou.BuildConfig;
-import com.watabou.noosa.Game;
 
 public class DeviceCompat {
 	
@@ -45,19 +39,6 @@ public class DeviceCompat {
 	
 	public static boolean usesISO_8859_1(){
 		return Build.VERSION.SDK_INT == Build.VERSION_CODES.FROYO;
-	}
-	
-	public static boolean isDebug(){
-		return BuildConfig.DEBUG;
-	}
-	
-	public static void openURI( String URI ){
-		Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( URI ) );
-		Game.instance.startActivity( intent );
-	}
-	
-	public static void log( String tag, String message ){
-		Log.i( tag, message );
 	}
 
 }

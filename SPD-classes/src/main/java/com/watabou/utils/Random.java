@@ -1,9 +1,9 @@
 /*
  * Pixel Dungeon
- * Copyright (C) 2012-2015 Oleg Dolya
+ * Copyright (C) 2012-2015  Oleg Dolya
  *
  * Shattered Pixel Dungeon
- * Copyright (C) 2014-2019 Evan Debenham
+ * Copyright (C) 2014-2017 Evan Debenham
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,6 +43,20 @@ public class Random {
 		return rand.nextFloat();
 	}
 
+    public static float Gauss(int ave) {
+	    float factor = Float();
+	    int ans;
+	    if (factor > 0.5) {
+	        ans = Math.round(2*ave*(-0.03f/(factor-1f)+0.44f));
+        }
+        else {
+            ans = Math.round(2*ave*(-0.03f/(factor-0f)+0.56f));
+        }
+        if (ans > ave*2) ans = ave*2;
+	    if (ans < 0) ans = 0;
+	    return ans;
+    }
+
 	//returns a uniformly distributed float in the range [0, max)
 	public static float Float( float max ) {
 		return Float() * max;
@@ -51,11 +65,6 @@ public class Random {
 	//returns a uniformly distributed float in the range [min, max)
 	public static float Float( float min, float max ) {
 		return min + Float(max - min);
-	}
-	
-	//returns a triangularly distributed float in the range [min, max)
-	public static float NormalFloat( float min, float max ) {
-		return min + ((Float(max - min) + Float(max - min))/2f);
 	}
 
 	//returns a uniformly distributed int in the range [0, max)
